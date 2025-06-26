@@ -29,7 +29,6 @@ h1, h2, h3 {
   margin: 0;
 }
 
-
 /* === HERO SECTION === */
 .hero {
   position: relative;
@@ -39,41 +38,74 @@ h1, h2, h3 {
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: white;
 }
 
-.video-bg iframe {
+.video-bg {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.video-bg iframe {
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: -1;
+  filter: brightness(0.7) blur(2px);
+  transform: scale(1.2);
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1.15);
+  }
+  to {
+    transform: scale(1.25);
+  }
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
   padding: 2rem;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
-  color: white;
-  max-width: 90%;
 }
 
-.hero-overlay h1 {
-  font-size: 3rem;
+.back-title {
+  font-size: 6vw;
   font-weight: 900;
+  opacity: 0.07;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
 }
 
-.hero-overlay h2 {
-  font-size: 1.5rem;
-  margin: 1rem 0;
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
 }
 
 .cta {
   display: inline-block;
-  margin-top: 1.5rem;
   background: var(--accent);
   color: white;
   padding: 0.8rem 1.6rem;
@@ -86,7 +118,6 @@ h1, h2, h3 {
 .cta:hover {
   background: #ff8fad;
 }
-
 
 /* === GALLERY === */
 .gallery {
@@ -120,7 +151,6 @@ h1, h2, h3 {
 .grid img:hover {
   transform: scale(1.03);
 }
-
 
 /* === PROJECTS === */
 .projects {
@@ -180,7 +210,6 @@ body.dark .social-sidebar a {
   color: var(--text-light);
 }
 
-
 /* === DARK TOGGLE === */
 .dark-toggle {
   position: fixed;
@@ -196,15 +225,18 @@ body.dark .social-sidebar a {
   box-shadow: var(--shadow);
 }
 
-
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .hero-overlay h1 {
-    font-size: 2rem;
+  .hero-content h2 {
+    font-size: 1.5rem;
   }
 
-  .hero-overlay h2 {
-    font-size: 1.2rem;
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .back-title {
+    font-size: 3rem;
   }
 
   .cta {
