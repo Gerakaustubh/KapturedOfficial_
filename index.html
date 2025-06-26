@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KapturedOfficial — by Kaustubh Gera</title>
 
   <!-- Google Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 
   <!-- AOS for animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
   <!-- PRELOADER -->
@@ -19,10 +19,13 @@
     <div class="loader"></div>
   </div>
 
-  <!-- HERO Section with Cinematic YouTube background -->
+  <!-- HERO Section with MP4 Background -->
   <section class="hero">
     <div class="video-bg">
-      <iframe src="https://www.youtube.com/embed/R2iMq5LKXco?autoplay=1&mute=1&loop=1&playlist=R2iMq5LKXco&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="media/hero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
     <div class="hero-overlay">
       <h1 class="back-title">KAPTUREDOFFICIAL</h1>
@@ -34,9 +37,9 @@
     </div>
   </section>
 
-  <!-- AUDIO PLAYER -->
+  <!-- Background Music -->
   <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d473dd962e.mp3?filename=deep-ambient-111862.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d473dd962e.mp3?filename=deep-ambient-111862.mp3" type="audio/mpeg" />
   </audio>
   <button class="music-toggle" id="musicToggle">🔊</button>
 
@@ -51,7 +54,7 @@
     </div>
   </section>
 
-  <!-- PROJECT Section -->
+  <!-- PROJECTS Section -->
   <section class="projects">
     <h2 data-aos="fade-up">Featured Projects</h2>
     <div class="project-cards">
