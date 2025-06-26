@@ -1,4 +1,4 @@
-\:root {
+:root {
   --bg: #f6f6f6;
   --text: #111;
   --accent: #ffb3c6;
@@ -16,9 +16,9 @@ body {
   color: var(--text);
   overflow-x: hidden;
   transition: background 0.3s, color 0.3s;
+  cursor: none;
 }
 
-/* DARK MODE */
 body.dark {
   --bg: #111;
   --text: #eee;
@@ -28,7 +28,6 @@ body.dark {
   --footer-text: #666;
 }
 
-/* === PRELOADER === */
 .preloader {
   position: fixed;
   inset: 0;
@@ -52,7 +51,6 @@ body.dark {
   to { transform: rotate(360deg); }
 }
 
-/* === HERO SECTION === */
 .hero {
   position: relative;
   height: 100vh;
@@ -101,6 +99,7 @@ body.dark {
   font-size: 1.2rem;
   color: #ddd;
   margin-bottom: 1rem;
+  min-height: 1.5rem;
 }
 
 .cta {
@@ -117,7 +116,6 @@ body.dark {
   background: #e98fa5;
 }
 
-/* === GALLERY === */
 .gallery {
   padding: 4rem 2rem;
   text-align: center;
@@ -139,6 +137,7 @@ body.dark {
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 
 .grid img:hover {
@@ -146,7 +145,6 @@ body.dark {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* === PROJECTS === */
 .projects {
   padding: 4rem 2rem;
   background: var(--glass-bg);
@@ -176,7 +174,6 @@ body.dark {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-/* === SIDEBAR & TOGGLES === */
 .social-sidebar {
   position: fixed;
   top: 50%;
@@ -228,7 +225,56 @@ body.dark {
   z-index: 1000;
 }
 
-/* === RESPONSIVE === */
+/* === CURSOR GLOW === */
+#cursorGlow {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 179, 198, 0.4);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  backdrop-filter: blur(3px);
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  to { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+}
+
+/* === LIGHTBOX === */
+#lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#lightbox.active {
+  display: flex;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 @media (max-width: 768px) {
   .back-title {
     font-size: 3rem;
