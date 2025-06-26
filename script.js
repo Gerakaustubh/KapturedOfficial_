@@ -17,12 +17,6 @@ window.addEventListener("load", () => {
   document.getElementById("preloader").style.display = "none";
 });
 
-// Cursor Glow
-const glow = document.getElementById("cursorGlow");
-document.addEventListener("mousemove", (e) => {
-  glow.style.left = `${e.clientX}px`;
-  glow.style.top = `${e.clientY}px`;
-});
 
 // Lightbox
 document.querySelectorAll(".grid img").forEach(img => {
