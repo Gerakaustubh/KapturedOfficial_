@@ -1,89 +1,53 @@
-// === AOS INIT ===
-AOS.init({
-  duration: 800,
-  once: true
-});
-
-// === MUSIC TOGGLE ===
-const music = document.getElementById("bg-music");
-const musicToggle = document.getElementById("musicToggle");
-let musicPlaying = false;
-
-musicToggle.addEventListener("click", () => {
-  if (musicPlaying) {
-    music.pause();
-    musicToggle.textContent = "🔊";
-  } else {
-    music.play();
-    musicToggle.textContent = "🔈";
+// Typing Effect
+const text = "Every Frame. A Feeling.";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.querySelector(".tagline").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 80);
   }
-  musicPlaying = !musicPlaying;
-});
-
-// === PRELOADER ===
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
-  if (preloader) {
-    preloader.style.transition = "opacity 0.5s ease";
-    preloader.style.opacity = 0;
-    setTimeout(() => {
-      preloader.style.display = "none";
-    }, 600);
-  }
-});
-
-// === FAILSAFE: Hide preloader after timeout ===
-setTimeout(() => {
-  const preloader = document.getElementById("preloader");
-  if (preloader && preloader.style.display !== "none") {
-    preloader.style.opacity = 0;
-    preloader.style.pointerEvents = "none";
-    preloader.style.display = "none";
-  }
-}, 4000);
-
-// === TYPING EFFECT ===
-const tagline = document.querySelector(".tagline");
-if (tagline) {
-  const text = tagline.textContent;
-  tagline.textContent = "";
-  let i = 0;
-  const type = () => {
-    if (i < text.length) {
-      tagline.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, 80);
-    }
-  };
-  setTimeout(type, 1000);
 }
+window.addEventListener("load", () => {
+  setTimeout(type, 1000);
+});
 
-// === LIGHTBOX ===
-const lightbox = document.createElement("div");
-lightbox.id = "lightbox";
-document.body.appendChild(lightbox);
+// Preloader
+window.addEventListener("load", () => {
+  document.getElementById("preloader").style.display = "none";
+});
 
-const imgs = document.querySelectorAll(".grid img");
-imgs.forEach(img => {
+// Cursor Glow
+const glow = document.getElementById("cursorGlow");
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = `${e.clientX}px`;
+  glow.style.top = `${e.clientY}px`;
+});
+
+// Lightbox
+document.querySelectorAll(".grid img").forEach(img => {
   img.addEventListener("click", () => {
+    const lightbox = document.getElementById("lightbox");
     lightbox.classList.add("active");
-    const imgEl = document.createElement("img");
-    imgEl.src = img.src;
-    while (lightbox.firstChild) lightbox.removeChild(lightbox.firstChild);
-    lightbox.appendChild(imgEl);
+    lightbox.innerHTML = `<img src="${img.src}" alt="full" />`;
   });
 });
-
-lightbox.addEventListener("click", () => {
-  lightbox.classList.remove("active");
+document.getElementById("lightbox").addEventListener("click", () => {
+  document.getElementById("lightbox").classList.remove("active");
 });
 
-// === CURSOR GLOW ===
-const cursor = document.createElement("div");
-cursor.id = "cursorGlow";
-document.body.appendChild(cursor);
-
-document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
+// Music Toggle
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("musicToggle");
+btn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    btn.textContent = "🔊";
+  } else {
+    music.pause();
+    btn.textContent = "🔇";
+  }
 });
+
+// AOS Init
+AOS.init();
