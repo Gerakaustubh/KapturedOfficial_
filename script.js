@@ -1,11 +1,8 @@
-// === AOS INIT ===
+// === Animate On Scroll Init ===
 AOS.init({
   duration: 800,
   once: true
 });
-
-// === DARK MODE TOGGLE ===
-// Already handled in HTML
 
 // === MUSIC TOGGLE ===
 const music = document.getElementById("bg-music");
@@ -23,7 +20,7 @@ musicToggle.addEventListener("click", () => {
   musicPlaying = !musicPlaying;
 });
 
-// === PRELOADER ===
+// === PRELOADER LOGIC ===
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   if (preloader) {
@@ -35,7 +32,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// === FAILSAFE: Hide preloader after timeout ===
+// === FAILSAFE: Hide preloader after 4 seconds just in case ===
 setTimeout(() => {
   const preloader = document.getElementById("preloader");
   if (preloader && preloader.style.display !== "none") {
