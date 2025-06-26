@@ -1,104 +1,74 @@
+/* === BASE STYLES === */
 :root {
-  --bg: #f6f6f6;
-  --glass-bg: rgba(255, 255, 255, 0.15);
-  --glass-border: rgba(255, 255, 255, 0.2);
   --accent: #ffb3c6;
-  --text: #1a1a1a;
-  --footer-bg: #0d0d0d;
-  --footer-text: #ccc;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --bg-light: #f9f9f9;
+  --bg-dark: #111;
+  --text-light: #f0f0f0;
+  --text-dark: #1a1a1a;
+  --glass: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   --transition: all 0.3s ease-in-out;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
+  margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to right, #fef6f9, #f0faff);
-  color: var(--text);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background: var(--bg-light);
+  color: var(--text-dark);
   scroll-behavior: smooth;
   transition: var(--transition);
 }
 
-/* Preloader */
-.preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+
+/* === HERO SECTION === */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
-  transition: opacity 1s ease;
-}
-
-.fade-out {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loader-text {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent);
-  animation: pulse 1.2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.6;
-  }
-}
-
-/* Hero Section */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: white;
   text-align: center;
-  padding: 0 2rem;
-  animation: fadeInUp 1.2s ease-in-out;
 }
 
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
+.video-bg iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.hero p:first-of-type {
-  font-size: 1.1rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  opacity: 0.9;
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  color: white;
+  max-width: 90%;
 }
 
-.hero h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+.hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: 900;
 }
 
-.hero p:last-of-type {
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin-bottom: 2rem;
-  opacity: 0.85;
+.hero-overlay h2 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
 .cta {
@@ -106,106 +76,139 @@ body {
   margin-top: 1.5rem;
   background: var(--accent);
   color: white;
-  padding: 0.9rem 1.6rem;
-  border-radius: 50px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
 }
 
 .cta:hover {
-  background: #ff92b1;
+  background: #ff8fad;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+/* === GALLERY === */
+.gallery {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--bg-light);
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
-/* Gallery Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  padding: 3rem 2rem;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .grid img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
+  box-shadow: var(--shadow);
   transition: var(--transition);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
 .grid img:hover {
-  transform: scale(1.04);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
 }
 
-/* Footer */
-footer {
-  background: var(--footer-bg);
-  color: var(--footer-text);
+
+/* === PROJECTS === */
+.projects {
+  background: white;
+  padding: 4rem 2rem;
   text-align: center;
-  padding: 2rem;
-  margin-top: auto;
 }
 
-.social-icons a {
-  margin: 0 0.5rem;
-  color: var(--footer-text);
-  font-size: 1.4rem;
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project {
+  background: var(--glass);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
   transition: var(--transition);
 }
 
-.social-icons a:hover {
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* === SOCIAL ICONS === */
+.social-sidebar {
+  position: fixed;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.social-sidebar a {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.social-sidebar a:hover {
   color: var(--accent);
 }
 
-/* Dark Mode Toggle */
+body.dark .social-sidebar a {
+  color: var(--text-light);
+}
+
+
+/* === DARK TOGGLE === */
 .dark-toggle {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 2rem;
+  right: 2rem;
   background: var(--accent);
-  color: white;
   border: none;
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 1rem;
   border-radius: 50px;
   font-size: 1rem;
   cursor: pointer;
+  color: white;
   box-shadow: var(--shadow);
 }
 
-/* Dark Mode Theme */
-body.dark {
-  --bg: #111;
-  --text: #f0f0f0;
-  --footer-bg: #000;
-  --footer-text: #888;
-  background: #1a1a1a;
-}
 
-/* Mobile Responsive */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
+  .hero-overlay h1 {
+    font-size: 2rem;
   }
 
-  .hero p {
-    font-size: 1rem;
+  .hero-overlay h2 {
+    font-size: 1.2rem;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .cta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }
