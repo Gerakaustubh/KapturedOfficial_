@@ -14,6 +14,11 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="loader"></div>
+  </div>
+
   <!-- HERO Section with Cinematic YouTube background -->
   <section class="hero">
     <div class="video-bg">
@@ -28,6 +33,12 @@
       </div>
     </div>
   </section>
+
+  <!-- AUDIO PLAYER -->
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d473dd962e.mp3?filename=deep-ambient-111862.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-toggle" id="musicToggle">🔊</button>
 
   <!-- GALLERY Section -->
   <section class="gallery" id="gallery">
