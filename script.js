@@ -1,4 +1,4 @@
-// === Animate On Scroll Init ===
+// === AOS INIT ===
 AOS.init({
   duration: 800,
   once: true
@@ -20,7 +20,7 @@ musicToggle.addEventListener("click", () => {
   musicPlaying = !musicPlaying;
 });
 
-// === PRELOADER LOGIC ===
+// === PRELOADER ===
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   if (preloader) {
@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// === FAILSAFE: Hide preloader after 4 seconds just in case ===
+// === FAILSAFE: Hide preloader after timeout ===
 setTimeout(() => {
   const preloader = document.getElementById("preloader");
   if (preloader && preloader.style.display !== "none") {
@@ -41,3 +41,49 @@ setTimeout(() => {
     preloader.style.display = "none";
   }
 }, 4000);
+
+// === TYPING EFFECT ===
+const tagline = document.querySelector(".tagline");
+if (tagline) {
+  const text = tagline.textContent;
+  tagline.textContent = "";
+  let i = 0;
+  const type = () => {
+    if (i < text.length) {
+      tagline.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    }
+  };
+  setTimeout(type, 1000);
+}
+
+// === LIGHTBOX ===
+const lightbox = document.createElement("div");
+lightbox.id = "lightbox";
+document.body.appendChild(lightbox);
+
+const imgs = document.querySelectorAll(".grid img");
+imgs.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.classList.add("active");
+    const imgEl = document.createElement("img");
+    imgEl.src = img.src;
+    while (lightbox.firstChild) lightbox.removeChild(lightbox.firstChild);
+    lightbox.appendChild(imgEl);
+  });
+});
+
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+
+// === CURSOR GLOW ===
+const cursor = document.createElement("div");
+cursor.id = "cursorGlow";
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
