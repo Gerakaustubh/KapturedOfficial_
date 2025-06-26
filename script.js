@@ -4,8 +4,8 @@ AOS.init({
   once: true
 });
 
-// === DARK MODE TOGGLE (already wired from HTML) ===
-// Toggled via button, no extra JS needed unless you want persistence
+// === DARK MODE TOGGLE ===
+// Already handled in HTML
 
 // === MUSIC TOGGLE ===
 const music = document.getElementById("bg-music");
@@ -27,8 +27,20 @@ musicToggle.addEventListener("click", () => {
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   if (preloader) {
+    preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity = 0;
-    preloader.style.pointerEvents = "none";
-    setTimeout(() => preloader.style.display = "none", 500);
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 600);
   }
 });
+
+// === FAILSAFE: Hide preloader after timeout ===
+setTimeout(() => {
+  const preloader = document.getElementById("preloader");
+  if (preloader && preloader.style.display !== "none") {
+    preloader.style.opacity = 0;
+    preloader.style.pointerEvents = "none";
+    preloader.style.display = "none";
+  }
+}, 4000);
