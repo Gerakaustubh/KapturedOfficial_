@@ -286,3 +286,39 @@ body, html {
 .back-link:hover {
   color: #fff;
 }
+.about-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ccc;
+  padding: 0 2rem;
+  max-width: 800px;
+}
+
+.about-absolute h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.about-absolute p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #aaa;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #fff;
+}
