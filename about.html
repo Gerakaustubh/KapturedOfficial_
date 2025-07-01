@@ -30,5 +30,37 @@
       document.getElementById('preloader').classList.add('hide');
     });
   </script>
+  <script>
+  // Preloader fade-out on load
+  window.addEventListener('load', () => {
+    document.getElementById('preloader').classList.add('hide');
+  });
+
+  // Fade-out transition on link click
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const target = this.getAttribute('href');
+
+      if (
+        target.startsWith('#') ||
+        target.startsWith('mailto:') ||
+        target.startsWith('tel:') ||
+        target.includes('instagram.com') ||
+        target.includes('linkedin.com') ||
+        target.includes('github.com') ||
+        this.target === "_blank"
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+      document.body.classList.add('fade-out');
+
+      setTimeout(() => {
+        window.location.href = target;
+      }, 300); // match the CSS fade duration
+    });
+  });
+</script>
 </body>
 </html>
