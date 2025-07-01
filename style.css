@@ -201,3 +201,47 @@ body, html {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.3);
 }
+.about-hero {
+  padding: 10vh 2rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.about-glass {
+  max-width: 720px;
+  margin: 2rem auto 4rem;
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.9;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.about-glass p {
+  color: #ccc;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #fff;
+}
