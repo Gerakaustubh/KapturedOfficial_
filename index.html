@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <script>
+  window.addEventListener('load', () => {
+    document.getElementById('preloader').classList.add('hide');
+  });
+
+  // Toggle dropdown
+  document.getElementById('menuToggle').onclick = () => {
+    document.getElementById('menu').classList.toggle('show');
+  };
+</script>
   <div id="preloader">
     <h2>KapturedOfficial</h2>
   </div>
@@ -16,7 +26,14 @@
       <h1>KapturedOfficial</h1>
       <p>Kaustubh Gera</p>
       <div class="line"></div>
-      <a href="about.html" class="hero-btn">About Me</a>
+      <div class="dropdown">
+  <button class="hero-btn" id="menuToggle">For More</button>
+  <div class="dropdown-menu" id="menu">
+    <a href="about.html">About Me</a>
+    <a href="#">Socials</a>
+    <a href="projects.html">My Work</a>
+  </div>
+</div>
       </a>
     </div>
   </div>
