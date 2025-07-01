@@ -180,3 +180,22 @@ body, html {
 .back-link:hover {
   color: #fff;
 }
+.about-centered {
+  max-width: 800px;
+  padding: 0 2rem;
+  text-align: center;
+  color: #ccc;
+}
+
+.about-centered h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.about-centered p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #aaa;
+}
