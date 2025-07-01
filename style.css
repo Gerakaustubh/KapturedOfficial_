@@ -370,3 +370,35 @@ body, html {
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
 }
+.gallery-centered {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.gallery-centered h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.1);
+}
