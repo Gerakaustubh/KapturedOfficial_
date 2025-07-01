@@ -204,6 +204,49 @@ body, html {
   border-color: rgba(255, 255, 255, 0.3);
   color: #fff;
 }
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 0.75rem 0;
+  min-width: 160px;
+  display: none;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-menu.show {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.dropdown-menu a {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #ccc;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .about-hero {
   padding: 10vh 2rem 2rem;
   text-align: center;
